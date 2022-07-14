@@ -53,8 +53,29 @@ describe('Interactions', () => {
   });
   it('Sortable', () => {
     //- Validate that the values are in order - One, Two, Three, Four, Five, Six
-
+    InteractionsPage.SortedTable.should("have.text","OneTwoThreeFourFiveSix");
     //- Sort the values in following order - Six, Five, Four, Three, Two, One
+    InteractionsPage.SortedTable
+    .trigger('mousedown', cy.get('.vertical-list-container > :nth-child(6)'))
+    .trigger('mousemove', cy.get('.vertical-list-container > :nth-child(1)'))
+    .trigger('mouseup');
+    InteractionsPage.SortedTable
+    .trigger('mousedown', cy.get('.vertical-list-container > :nth-child(6)'))
+    .trigger('mousemove', cy.get('.vertical-list-container > :nth-child(2)'))
+    .trigger('mouseup');
+    InteractionsPage.SortedTable
+    .trigger('mousedown', cy.get('.vertical-list-container > :nth-child(6)'))
+    .trigger('mousemove', cy.get('.vertical-list-container > :nth-child(3)'))
+    .trigger('mouseup');
+    InteractionsPage.SortedTable
+    .trigger('mousedown', cy.get('.vertical-list-container > :nth-child(6)'))
+    .trigger('mousemove', cy.get('.vertical-list-container > :nth-child(4)'))
+    .trigger('mouseup');
+    InteractionsPage.SortedTable
+    .trigger('mousedown', cy.get('.vertical-list-container > :nth-child(6)'))
+    .trigger('mousemove', cy.get('.vertical-list-container > :nth-child(5)'))
+    .trigger('mouseup');
     //- Validate that the values are in order - Six, Five, Four, Three, Two, One
+    InteractionsPage.SortedTable.should("have.text","SixFiveFourThreeTwoOne");
   })
 })
